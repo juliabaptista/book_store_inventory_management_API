@@ -11,6 +11,8 @@ public class BookDAO {
     private static final String INSERT_BOOK_SQL = "INSERT INTO books (title, author, price, quantity) VALUES (?, ?, ?, ?)";
     private static final String SELECT_ALL_BOOKS_SQL = "SELECT * FROM books";
     private static final String SELECT_BOOK_BY_ID_SQL = "SELECT * FROM books WHERE id = ?";
+    private static final String UPDATE_BOOK_SQL = "UPDATE books SET title = ?, author = ?, price = ?, quantity = ? WHERE id = ?";
+    private static final String DELETE_BOOK_BY_ID_SQL = "DELETE FROM books WHERE id = ?";
 
     public static void insertBook(Connection connection, Book book) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(INSERT_BOOK_SQL, Statement.RETURN_GENERATED_KEYS)) {
@@ -47,7 +49,6 @@ public class BookDAO {
                 Book book = createBookFromResultSet(resultSet);
                 books.add(book);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -64,12 +65,46 @@ public class BookDAO {
                     return createBookFromResultSet(resultSet);
                 }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
+    }
+
+    public static void updateBookQuantity(Connection connection, Book updatedBook) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BOOK_SQL)) {
+            preparedStatement.setString(1, updatedBook.getTitle());
+            preparedStatement.setString(2, updatedBook.getAuthor());
+            preparedStatement.setDouble(3, updatedBook.getPrice());
+            preparedStatement.setInt(4, updatedBook.getQuantity());
+            preparedStatement.setInt(5, updatedBook.getId());
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected == 0) {
+                System.out.println("No book found with ID: " + updatedBook.getId());
+            } else {
+                System.out.println("Book updated successfully.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void deleteBookById(Connection connection, int id) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(DELETE_BOOK_BY_ID_SQL)) {
+            preparedStatement.setInt(1, id);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected == 0) {
+                System.out.println("No book found with ID: " + id);
+            } else {
+                System.out.println("Book deleted successfully.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private static Book createBookFromResultSet(ResultSet resultSet) throws SQLException {
