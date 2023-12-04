@@ -1,0 +1,19 @@
+
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+Y
+)src/main/java/org/example/model/Book.java,f/3/f31612a6d421f26e33b75c648d75610d4705b1c0
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+`
+0src/main/java/org/example/util/DBConnection.java,1/7/17ef5043a47eadcf9738f72a5eb5251ee377da84
+d
+4src/main/java/org/example/util/TestDBConnection.java,8/c/8c0e8e042012711d9fc0fd8fb5cc810cb00b7b70
+Z
+*src/main/java/org/example/dao/BookDAO.java,b/a/ba62bd2642a6dc3b16572c0aa967ee89e7f817a1
+e
+5src/main/java/org/example/resources/BookResource.java,4/0/4003be96eecec3e78bb220e5f41215222ebfcd01
+S
+#src/main/java/org/example/Main.java,0/b/0ba1b9c7a4878802f938e331cc2d8a042087ec6b
+Z
+*src/main/java/org/example/Application.java,4/3/432c3153ec200f97fd958aff4556b23f82d391f7

@@ -1,0 +1,12 @@
+
+q
+java:S1192K"UUse already-defined constant 'UPDATE_BOOK_SQL' instead of duplicating its value here.(òëÉ8’™Æ§Ã1
+l	java:S117K"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òëÉ8—™Æ§Ã1
+\
+java:S1118	":Add a private constructor to hide the implicit public one.(À×¬Áûÿÿÿÿ8ñÚ’§Ã1
+G	java:S106W"+Replace this use of System.out by a logger.(ŸŒÍŞ8‹Š¼§Ã1
+G	java:S106Y"+Replace this use of System.out by a logger.(¿ÅÆí8‹Š¼§Ã1
+G	java:S106g"+Replace this use of System.out by a logger.(‡Š…”8Û›Æ§Ã1
+G	java:S106i"+Replace this use of System.out by a logger.(©¥”ú8Ü›Æ§Ã1
+P
+java:S1068"3Remove this unused "UPDATE_BOOK_SQL" private field.(‚Âø¹8Š¼§Ã1
