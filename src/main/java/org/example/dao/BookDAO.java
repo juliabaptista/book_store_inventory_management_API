@@ -71,18 +71,20 @@ public class BookDAO {
         return null;
     }
 
-    public static void updateBookQuantity(Connection connection, Book updatedBook) {
+    public static void updateBook(Connection connection, int bookId, Book updatedBook) {
+        String UPDATE_BOOK_SQL = "UPDATE books SET title = ?, author = ?, price = ?, quantity = ? WHERE id = ?";
+
         try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BOOK_SQL)) {
             preparedStatement.setString(1, updatedBook.getTitle());
             preparedStatement.setString(2, updatedBook.getAuthor());
             preparedStatement.setDouble(3, updatedBook.getPrice());
             preparedStatement.setInt(4, updatedBook.getQuantity());
-            preparedStatement.setInt(5, updatedBook.getId());
+            preparedStatement.setInt(5, bookId);
 
             int rowsAffected = preparedStatement.executeUpdate();
 
             if (rowsAffected == 0) {
-                System.out.println("No book found with ID: " + updatedBook.getId());
+                System.out.println("No book found with ID: " + bookId);
             } else {
                 System.out.println("Book updated successfully.");
             }
