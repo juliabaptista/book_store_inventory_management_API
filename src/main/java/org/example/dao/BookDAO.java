@@ -71,7 +71,7 @@ public class BookDAO {
         return null;
     }
 
-    public static void updateBook(Connection connection, int bookId, Book updatedBook) {
+    public static boolean updateBook(Connection connection, int bookId, Book updatedBook) {
         String UPDATE_BOOK_SQL = "UPDATE books SET title = ?, author = ?, price = ?, quantity = ? WHERE id = ?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BOOK_SQL)) {
@@ -91,6 +91,7 @@ public class BookDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     public static void deleteBookById(Connection connection, int id) {
