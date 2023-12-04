@@ -17,22 +17,23 @@ public class DBConnection {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
-            System.out.println("Connected");
+//            System.out.println("Connected");
             return connection;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+    }
 
-        //    close the db connection
-//        public static void closeConnection () {
-//            try {
-//                if (connection != null && !connection.isClosed()) {
-//                    connection.close();
-//                }
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+    //    close the db connection
+    public static void closeConnection() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+//                System.out.println("Connection closed");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
